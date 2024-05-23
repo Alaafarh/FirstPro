@@ -1,0 +1,41 @@
+﻿@model Aboutu
+@{
+    ViewData["Title"] = "AboutUs";
+    Layout = "~/Views/Shared/Home.cshtml";
+}
+
+<section id="content">
+    <div class="container_24">
+        <div class="wrapper bg-wrapper">
+            <div class="grid_18 bg-grid top-2">
+                <div class="bg-grid">
+                    <div class="grid_6 marg-left-0">
+                        @*src="~/Home/images/page-img.png"*@
+                        <img  src=@Url.Content("~/Images/"  + Model.Imageform) asp-append-version="true"  alt="" class="image top">
+                    </div>
+                    <div class="grid_11 suffix_1 marg-right-0">
+                        <h2 class="txt-al padd"> @Model.About@*We Publish Only The Best Popular Recipes For You!*@</h2>
+                        <strong>Asdera lauda ntiusp astaseauae abersase mertyasera</strong>
+                        <p class="bot">
+                            @Model.Textinsideimage
+                           
+                           veritatis etasi litobea taevitare psam voluptmquia voluasipern
+                            atuesler miase lerosac mertyuade. Masaut odit autfugit, seduia consunture
+                            magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro
+                            adipisci velit, sed quia non numquam. illoinre veritatis etasi litobea taevitare psam voluptmquia voluasipern
+                            atuesler miase lerosac mertyuade. Masaut odit autfugit, seduia consunture
+                            magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro
+                            adipisci velit, sed quia non numquam. illoinre veritatis etasi litobea taevitare psam voluptmquia voluasipern
+                            atuesler miase lerosac mertyuade. Masaut odit autfugit, seduia consunture
+                            magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro
+                            adipisci velit, sed quia non numquam.
+                        </p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+               
+            </div>
+
+</div>
+</div></section>

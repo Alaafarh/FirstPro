@@ -1,0 +1,214 @@
+﻿@*@model IEnumerable<Home>
+@{
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<html>
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container-fluid page-body-wrapper">
+        <!-- side bar -->
+
+        <div class="content-wrapper d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+
+            <div class="row w-100">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card">
+
+                        <div class="card-body">
+                            <form asp-action="homeManage" asp-controller="Admin" method="post" enctype="multipart/form-data">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <input type="hidden" id="Home1" />
+                                <div class="form-group">
+                                    <label for="Textaboutus" class="control-label">Text aboutus</label>
+                                    <input type="text" name="Textaboutus" id="Textaboutus" class="form-control" />
+                                </div>
+                                 <div class="form-group">
+                                    <label for="Textcontact" class="control-label">Text contact</label>
+                                    <input type="text" name="Textcontact" id="Textcontact" class="form-control" />
+                                </div>
+                                 <div class="form-group">
+                                    <label for="Textonimage" class="control-label">Text On Image</label>
+                                    <input type="text" name="Textonimage" id="Textonimage" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="Textonvedio" class="control-label">Textonvedio</label>
+                                    <input type="text" name="Textonvedio" id="Textonvedio" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="Imageslider" class="control-label">Back ground Image</label>
+                                    <input type="file" id="Imageslider" name="Imageslider" class="form-control" />
+                                </div>
+                                <div class="form-group text-center">
+                                    <input type="submit" value="Save" class="btn btn-primary" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row w-100 mt-5">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Textaboutus</th>
+                                                <th>Textcontact</th>
+                                                <th>Textonimage</th>
+                                                <th>Textonvedio</th>
+                                                <th>Images</th>
+
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.Textaboutus</td>
+                                           <td>@item.Textcontact</td>
+
+                                   <td>@item.Textonimage</td>
+                                    <td>@item.Textonvedio</td>
+
+
+                                                                                                                                                                                                <td>@item.Textaboutus</td>
+
+                                                <td>
+                                                    <img src="@Url.Content("~/Images/" + item.Imageslider)" asp-append-version="true"
+                                                     style="border-radius:10%;" width="150" height="150" />
+                                                </td>
+                                                <td>
+                                                    <a asp-action="AboutUs" asp-controller="Home" asp-route-id="@item.Home1" class="btn btn-warning">Edit</a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+*@
+
+@model IEnumerable<Home>
+@{
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<html>
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container-fluid page-body-wrapper">
+        <!-- side bar -->
+
+        <div class="content-wrapper d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+
+            <div class="row w-100">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card">
+
+                        <div class="card-body">
+                            <form asp-action="homeManage" asp-controller="Admin" method="post" enctype="multipart/form-data">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <input type="hidden" id="Home1" />
+                                <div class="form-group">
+                                    <label for="Textaboutus" class="control-label">Text aboutus</label>
+                                    <input type="text" name="Textaboutus" id="Textaboutus" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="Textcontact" class="control-label">Text contact</label>
+                                    <input type="text" name="Textcontact" id="Textcontact" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="Textonimage" class="control-label">Text On Image</label>
+                                    <input type="text" name="Textonimage" id="Textonimage" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="Textonvedio" class="control-label">Text on Video</label>
+                                    <input type="text" name="Textonvedio" id="Textonvedio" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="Imageslider" class="control-label">Background Image</label>
+                                    <input type="file" id="Imageslider" name="Imageslider" class="form-control" />
+                                </div>
+                                <div class="form-group text-center">
+                                    <input type="submit" value="Save" class="btn btn-primary" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row w-100 mt-5">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Textaboutus</th>
+                                            <th>Textcontact</th>
+                                            <th>Textonimage</th>
+                                            <th>Textonvedio</th>
+                                            <th>Images</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.Textaboutus</td>
+                                                <td>@item.Textcontact</td>
+                                                <td>@item.Textonimage</td>
+                                                <td>@item.Textonvedio</td>
+                                                <td>@item.Textaboutus</td>
+                                                <td>
+                                                    <img src="@Url.Content("~/Images/" + item.Imageslider)" asp-append-version="true"
+                                                     style="border-radius:10%;" width="150" height="150" />
+                                                </td>
+                                                <td>
+                                                    <a asp-action="AboutUs" asp-controller="Home" asp-route-id="@item.Home1" class="btn btn-warning">Edit</a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+﻿
+    @model IEnumerable<FirstPro.Models.Recipe>
+
+@{
+    Layout = "~/Views/Shared/Home.cshtml";
+}
+
+<section id="content">         
+    <div class="container_24">
+        <div class="wrapper bg-wrapper">
+            <div class="grid_17 suffix_1">
+                <h2 class="padd-3">Recipes for @ViewBag.Fname @ViewBag.Lname </h2>
+                <div class="main-carousel">
+                    <div class="carousel">
+                        
+                        @for (int i = 0; i < Model.Count(); i += 3)
+                        {
+                            <div class="row">
+                                @for (int j = i; j < i + 3 && j < Model.Count(); j++)
+                                {
+                                    var item = Model.ElementAt(j);
+                                    <div class="grid_5 txt-al suffix_1 marg-left-0">
+                                        <img src="@Url.Content("~/Images/" + item.Imagepath)" alt="" class="image" />
+                                        <h3 class="top-1">@item.Recipename</h3>
+                                        <p class="font-14 top-2">@item.Discription</p>
+                                        <h2>Price: @item.Price</h2>
+                                        <a asp-action="OrderRecipe" asp-controller="CheckOut" asp-route-id="@item.Recipeid" class="button top-1 bot">Order Recipe<span></span></a>
+
+                                    </div>
+                                }
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div></div></div>
+
+           @* <div class="grid_6">
+<div class="box">
+              <span class="title-box left">Fresh Recipes</span>
+               <ul class="list bg-list top-3">
+               	<li><a href="#">Monlase duscehertser </a></li>
+               	<li><a href="#">Gravida atsnctus aloecen</a></li>
+               	<li><a href="#">Magna onccumsan</a></li>
+               </ul>   
+               <span class="title-box left">Popular Recipes</span>
+               <ul class="list bg-list top-1">
+               	<li><a href="#">Baser uscehe ratsease </a></li>
+               	<li><a href="#">Nesneuctus aloecen kerera
+maserteasr</a></li>
+               	<li><a href="#">Onec accumsan </a></li>
+               </ul>   
+               <span class="title-box left">Recipes for Vegan</span>
+               <ul class="list top-1 bot-1">
+               	<li><a href="#">Uscehe ratsease </a></li>
+               	<li><a href="#">Kero asmaserte asrate</a></li>
+               	<li><a href="#">Scertas msan leas male</a></li>
+                <li><a href="#">Asit aconipiscing</a></li>
+                <li><a href="#">Nel auris fermentase</a></li>
+               </ul>
+               <div class="txt-al"><a href="#" class="button-1">View More<span></span></a></div>   
+           </div>            </div>
+            <div class="clear"></div>
+            <div class="grid_24 bg-bot"></div>
+        </div>
+    </div>*@
+</section>
+
+<style>
+    .row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .carousel {
+        overflow: hidden;
+    }
+
+    .grid_5 {
+        width: calc(33.33% - 20px);
+        margin-right: 20px;
+        box-sizing: border-box;
+    }
+

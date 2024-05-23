@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <meta charset="utf-8">  
+
+    <link rel="stylesheet" type="text/css" media="screen" href="~/Home/css/reset.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="~/Home/css/style.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="~/Home/css/grid.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="~/Home/css/slider.css">
+    <link rel="icon" href="~/Home/images/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="~/Home/images/favicon.ico" type="image/x-icon" /> 
+    <script src="~/Home/js/jquery-1.7.1.min.js"></script>
+    <script src="~/Home/js/jquery.easing.1.3.js"></script>
+    <script src="~/Home/js/superfish.js"></script>
+    <script src="~/Home/js/jquery.hoverIntent.minified.js"></script>
+    <script src="~/Home/js/tms-0.4.1.js"></script>
+    <script src="~/Home/js/uCarousel.js"></script>
+    <script src="~/Home/js/jquery.ui.totop.js"></script>   
+   
+    <script>
+	 $(window).load(function(){
+	 	$('.simple_gallery')._TMS({
+			show:0,
+			pauseOnHover:true,
+			prevBu:false,
+			nextBu:false,
+			playBu:false,
+			pagNums:false,
+			numStatus:false,
+			duration:1000,
+			preset:'diagonalExpand',
+			items:'.items>li',
+			bannerCl:'banner',
+			pagination:$('.img-pags').uCarousel({show:7,shift:0,buttonClass:'btn'}),
+			paginationCl:'gal-pags',
+			slideshow:9000,
+			banners:'fromRight',// fromLeft, fromRight, fromTop, fromBottom
+			waitBannerAnimation:false,
+			progressBar:'<div class="pro_progbar"></div>'})	
+            $().UItoTop({ easingType: 'easeOutQuart' });
+		});
+</script>
+    <!--[if lt IE 8]>
+       <div style=' clear: both; text-align:center; position: relative;'>
+         <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+           <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+        </a>
+      </div>
+    <![endif]-->
+    <!--[if lt IE 9]>
+   		<script type="text/javascript" src="js/html5.js"></script>
+    	<link rel="stylesheet" type="text/css" media="screen" href="css/ie.css">
+	<![endif]-->
+</head>
+<body>
+<!--==============================header=================================-->
+<div class="main">
+     <div class="head">	     
+     <header>
+       <h1><a asp-controller="Home" asp-action="Index"><strong>Cooking</strong><span>the best online recipes </span></a></h1>
+       <nav> 
+        <ul class="sf-menu">
+            <li class="current"><a asp-action="AboutUs"  asp-controller="Home">About Us</a></li>
+            <li><a href="#">Our Recipes</a>
+               <ul>
+               <li><a asp-controller="Recipes" asp-action="Recipespage">All Recipes</a></li> 
+                 <li><a asp-controller="Categories" asp-action="Categorypage">category of Recipes</a></li> 
+                  <li><a asp-action="SeeTestimonial" asp-controller="Home">View Users Comments</a></li>
+                   <li><a asp-action="chefSeeTestimonial" asp-controller="Home">View Chef Comments</a></li>
+
+                  <li><a asp-action="Search" asp-controller="Recipes">Search Recipes</a>
+                  </li>
+            </ul>
+             </li>
+             <li><a asp-action="Contact" asp-controller="Home">Contacts</a></li> 
+
+              @if (ViewBag.IDcustmer == null && ViewBag.IDAdmin == null && ViewBag.Chifid == null)
+              {
+             <li><a href="#">Account</a>
+               <ul>
+                 <li> <a asp-controller="Account" asp-action="Register"> Sign Up</a>
+                 </li> 
+                 <li> <a asp-controller="Account" asp-action="Login"> Sign In</a>   
+                  </li>
+               </ul>
+             </li>
+              }
+             @if(ViewBag.IDcustmer != null)
+             {
+                 <li><a href="#">My Account</a>
+               <ul>
+                 <li> <a asp-controller="Custmer" asp-action="CustmerProfile"> My Profile</a>
+               </li> 
+                 <li> <a asp-controller="Account" asp-action="Logout"> Log Out</a>
+                     
+                  </li>
+               </ul>
+             </li>     
+             }
+         
+           @if(ViewBag.IDAdmin != null)
+            {
+               <li><a asp-controller="Admin" asp-action="Index">Dashboared</a></li>
+
+                 <li><a href="#">My Account</a>
+               <ul>
+                 <li> <a asp-controller="Admin" asp-action="Index"> My Profile</a>
+               </li> 
+                 <li> <a asp-controller="Account" asp-action="Logout"> Log Out</a>
+                     
+                  </li>
+               </ul>
+             </li>
+                            
+            }
+            @if (ViewBag.Chifid != null)
+            {
+               <li><a href="#">My Recipes</a>
+               <ul>
+                 <li><a asp-controller="Recipes" asp-action="Create"> Create New Recipe</a>
+               </li> 
+                 <li><a  asp-action="RecipespageChef" asp-controller="Recipes"> My Recipe</a>
+                     
+                  </li>
+                 
+               </ul>
+             </li>
+
+                 <li><a href="#">My Account</a>
+               <ul>
+                 <li> <a asp-controller="Custmer" asp-action="CustmerProfile"> My Profile</a>
+               </li> 
+                 <li> <a asp-controller="Account" asp-action="Logout"> Log Out</a>
+                     
+                  </li>
+               </ul>
+             </li>
+                            
+           }
+         </ul>
+       </nav>
+       <div class="clear"></div>
+      </header>
+        @RenderBody()
+        <!--==============================footer=================================-->		
+	<footer>
+		<div class="main-footer">
+	         <div class="container_24">
+                   <div class="grid_17">
+                      <div class="icons">
+                          <span class="facebook">Join Us on <a href="#">Facebook<strong></strong></a></span>
+                          <span class="twitter">Join Us on <a href="#">Twitter<strong></strong></a></span>
+                      </div>
+                   </div>   
+		  	       <div class="grid_7"> 
+                       <p>Cooking &copy; 2012 | <a href="index-5.html">Privacy policy</a><br><!--{%FOOTER_LINK} --></p>
+                   </div>
+	          <div class="clear"></div>
+	        </div>
+        </div>
+	</footer>
+</div>	
+        @await Component.InvokeAsync("Notyf")
+
+ @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

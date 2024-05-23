@@ -1,0 +1,5 @@
+List of Fonts used in template 
+
+Pacifico		http://www.google.com/webfonts/specimen/Pacifico
+Simonetta		http://www.google.com/webfonts/specimen/Simonetta
+Smythe		http://www.google.com/webfonts/specimen/Smythe

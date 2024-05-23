@@ -1,0 +1,242 @@
+﻿@*@model Tuple<Userlogin, User>
+
+@{
+    ViewData["Title"] = "ChefProfile";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+<style>
+    .custom-card-width {
+    max-width: 400px; /* Adjust the width as needed */
+    margin: auto; /* Centers the card horizontally */
+}
+
+</style>
+ <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+
+            <div class="row page-titles mx-0">
+                <div class="col p-md-0">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+                    </ol>
+                </div>
+            </div>
+            <!-- row -->
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4 col-xl-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="media align-items-center mb-4">
+                                    <img class="mr-3" src="~/Admin/images/admin photo.jpg" width="80" height="80" alt="">
+                                    <div class="media-body">
+                                        <h3 class="mb-0">@Model.Item2.Fname @Model.Item2.Lname</h3>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-5">
+                                    <div class="col">
+                                        <div class="card card-profile text-center">
+                                            <span class="mb-1 text-primary"><i class="icon-people"></i></span>
+                                            <h3 class="mb-0">263</h3>
+                                            <p class="text-muted px-4">Following</p>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="card card-profile text-center">
+                                            <span class="mb-1 text-warning"><i class="icon-user-follow"></i></span>
+                                            <h3 class="mb-0">263</h3>
+                                            <p class="text-muted">Followers</p>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-12 text-center">
+                                        <button class="btn btn-danger px-5">Follow Now</button>
+                                    </div>
+                                </div>
+
+                                <h4>About Me</h4>
+                                <p class="text-muted">Hi, I'm Pikamy, has been the industry standard dummy text ever since the 1500s.</p>
+                                <ul class="card-profile__info">
+                                    <li class="mb-1"><strong class="text-dark mr-4">Mobile</strong> <span>01793931609</span></li>
+                                    <li><strong class="text-dark mr-4">Email</strong> <span>@Model.Item2.Email</span></li>
+                                    <li ><a asp-action="EditChefProfile" asp-route-id="@Model.Item2.UserId" asp-controller="Admin" class="mt-5 text-center"><i class="fa fa-edit"></i> Edit profile</a>
+</li>
+                                </ul>
+                            </div>
+                        </div>  
+                    </div>
+               
+                </div>
+            </div>
+            <!-- #/ container -->
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+        
+        
+*@
+@*@model Tuple<Userlogin, User>
+
+@{
+    ViewData["Title"] = "ChefProfile";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+ <!--**********************************
+            Content body start
+        ***********************************-->
+<div class="content-body">
+    <div class="row page-titles mx-0">
+        <div class="col p-md-0">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+            </ol>
+        </div>
+    </div>
+    <!-- row -->
+
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-xl-3">
+                <div class="card custom-card-width" style="width:700px ">
+                    <div class="card-body">
+                        <div class="media align-items-center mb-4">
+                            <img class="mr-3" src="~/Admin/images/admin photo.jpg" width="80" height="80" alt="">
+                            <div class="media-body">
+                                <h3 class="mb-0">@Model.Item2.Fname @Model.Item2.Lname</h3>
+                            </div>
+                        </div>
+
+                        <div class="row mb-5">
+                            <div class="col">
+                                <div class="card card-profile text-center">
+                                    <span class="mb-1 text-primary"><i class="icon-people"></i></span>
+                                    <h3 class="mb-0">263</h3>
+                                    <p class="text-muted px-4">Following</p>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card card-profile text-center">
+                                    <span class="mb-1 text-warning"><i class="icon-user-follow"></i></span>
+                                    <h3 class="mb-0">263</h3>
+                                    <p class="text-muted">Followers</p>
+                                </div>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button class="btn btn-danger px-5">Follow Now</button>
+                            </div>
+                        </div>
+
+                        <h4>About Me</h4>
+                        <p class="text-muted">Hi, I'm Pikamy, has been the industry standard dummy text ever since the 1500s.</p>
+                        <ul class="card-profile__info">
+                            <li class="mb-1"><strong class="text-dark mr-4">Mobile</strong> <span>01793931609</span></li>
+                            <li><strong class="text-dark mr-4">Email</strong> <span>@Model.Item2.Email</span></li>
+                            <li><a asp-action="EditChefProfile" asp-route-id="@Model.Item2.UserId" asp-controller="Admin" class="mt-5 text-center"><i class="fa fa-edit"></i> Edit profile</a></li>
+                        </ul>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </div>
+</div>*@
+@model Tuple<Userlogin, User>
+
+@{
+    ViewData["Title"] = "ChefProfile";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+<head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .card-profile__info {
+            list-style-type: none;
+            padding: 0;
+        }
+        .card-profile__info li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .card-profile__info li strong {
+            margin-right: 1rem;
+            min-width: 100px; /* يمكنك ضبط العرض حسب الحاجة */
+        }
+        .card-profile__info li a {
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+        .card-profile__info li i {
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+ <!--**********************************
+            Content body start
+        ***********************************-->
+<div class="content-body">
+    <div class="row page-titles mx-0">
+        <div class="col p-md-0">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+            </ol>
+        </div>
+    </div>
+    <!-- row -->
+
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-xl-8">
+                <div class="card custom-card-width" style="max-width: 700px; margin: auto;">
+                    <div class="card-body">
+                        <div class="media align-items-center mb-4">
+                            <img class="mr-3" src="~/Admin/images/admin photo.jpg" width="80" height="80" alt="">
+                            <div class="media-body">
+                                <h3 class="mb-0">@Model.Item2.Fname @Model.Item2.Lname</h3>
+                            </div>
+                        </div>
+
+                        <div class="row mb-5">
+                            <div class="col">
+                                <div class="card card-profile text-center">
+                                    <span class="mb-1 text-primary"><i class="icon-people"></i></span>
+                                    <h3 class="mb-0">@ViewBag.numuser</h3>
+                                    <p class="text-muted px-4">users</p>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card card-profile text-center">
+                                    <span class="mb-1 text-warning"><i class="fas fa-shopping-cart"></i></span>
+                                    <h3 class="mb-0">@ViewBag.order</h3>
+                                    <p class="text-muted">Orders</p>
+                                </div>
+                            </div>
+                            <div class="col-12 text-center" >
+                                <button  asp-asp-action="Index" aasp-controller="Home"  class="btn btn-success px-5">Go To Website</button>
+
+                            </div>
+                        </div>
+
+                     
+                        <ul class="card-profile__info">
+        <li class="mb-1"><strong class="text-dark mr-4">Mobile</strong> <span>01793931609</span></li>
+        <li><strong class="text-dark mr-4">Email</strong> <span>@Model.Item2.Email</span></li>
+        <li><strong class="text-dark mr-4">User Name</strong> <span>@Model.Item1.Username</span></li>
+        <li><a asp-action="EditChefProfile" asp-route-id="@Model.Item2.UserId" asp-controller="Admin" class="mt-5 text-center"><i class="fa fa-edit"></i> Edit profile</a></li>
+    </ul>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </div>
+</div>

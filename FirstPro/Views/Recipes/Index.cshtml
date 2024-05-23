@@ -1,0 +1,163 @@
+﻿@*@model IEnumerable<FirstPro.Models.Recipe>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h1>Manage Recipe</h1>
+
+
+<div class="col-lg-6">
+    <div class="card">
+        <div class="card-body">
+            <div class="card-title">
+                <h4>Recipe Table</h4>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Recipename)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Price)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Flag)
+                            </th>
+                            <th>
+                                Image
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Creatdate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Discription)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Category)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.User)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Recipename)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Price)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Flag)
+
+                                </td>
+                                <td>
+                                    <img src="@Url.Content("~/Images/" + item.Imagepath)" asp-append-version="true" style="border-radius: 20%;" width="100" height="100" />
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Creatdate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Discription)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Category.Categoryname)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.User.Fname)
+                                </td>
+                                <td>
+                                    <a asp-action="Details" asp-route-id="@item.Recipeid">Details</a>
+                                    <a asp-action="Edit" asp-route-id="@item.Recipeid">Edit</a>
+
+                                </td>
+                            </tr>
+
+                        }
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>*@
+@model IEnumerable<FirstPro.Models.Recipe>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<style>
+    .center-page {
+        display: flex;
+        justify-content: center;
+    }
+
+    .table-responsive {
+        margin-top: 20px; /* Adjust margin as needed */
+    }
+    .card {
+        width: 110%; /* Set the width to 100% */
+        max-width: 1200px; /* Set a maximum width if needed */
+        margin: 20px auto; 
+</style>
+
+<div class="center-page">
+    <div class="col-lg-8" style="padding:60px"> <!-- Adjust the column width as per your design -->
+        <div class="card">
+            <div class="card-body">
+                <div class="card-title">
+                    <h4 class="text-center">Recipe Table</h4> <!-- Center the table title -->
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.Recipename)</th>
+                                <th>@Html.DisplayNameFor(model => model.Price)</th>
+                                <th>@Html.DisplayNameFor(model => model.Flag)</th>
+                                <th>Image</th>
+                                <th>@Html.DisplayNameFor(model => model.Creatdate)</th>
+                                <th>@Html.DisplayNameFor(model => model.Discription)</th>
+                                <th>@Html.DisplayNameFor(model => model.Category)</th>
+                                <th>@Html.DisplayNameFor(model => model.User)</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.Recipename)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Price)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Flag)</td>
+                                    <td><img src="@Url.Content("~/Images/" + item.Imagepath)" asp-append-version="true" style="border-radius: 20%;" width="100" height="100" /></td>
+                                    <td>@Html.DisplayFor(modelItem => item.Creatdate)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Discription)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Category.Categoryname)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.User.Fname)</td>
+                                    <td>
+                                        <a asp-action="Details" asp-route-id="@item.Recipeid">Details</a>
+                                        <a asp-action="Edit" asp-route-id="@item.Recipeid">Edit</a>
+                                       <a asp-action="Delete" asp-route-id="@item.Recipeid">Delete</a>
+
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

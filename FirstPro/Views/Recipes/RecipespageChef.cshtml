@@ -1,0 +1,75 @@
+﻿
+    @model IEnumerable<FirstPro.Models.Recipe>
+
+@{
+    Layout = "~/Views/Shared/Home.cshtml";
+}
+
+<section id="content">         
+    <div class="container_24">
+        <div class="wrapper bg-wrapper">
+            <div class="grid_17 suffix_1">
+                                <h2 class="padd-3"> My Recipes</h2>
+
+                <h2 class="padd-3">Recipes</h2>
+                <div class="main-carousel">
+                    <div class="carousel">
+                        @for (int i = 0; i < Model.Count(); i += 3)
+                        {
+                            <div class="row">
+                                @for (int j = i; j < i + 3 && j < Model.Count(); j++)
+                                {
+                                    var item = Model.ElementAt(j);
+                                    <div class="grid_5 txt-al suffix_1 marg-left-0">
+                                        <img src="@Url.Content("~/Images/" + item.Imagepath)" alt="" class="image" />
+                                        <h3 class="top-1">@item.Recipename</h3>
+                                        <p class="font-14 top-2">@item.Discription</p>
+                                        <h2>Price: @item.Price AED</h2>
+                             <a asp-action="Edit" asp-controller="ChefEditRecipe" asp-route-id=@item.Recipeid class="button top-1">Edit Recipe<span></span></a>
+                          <a asp-action="Delete" asp-controller="ChefEditRecipe" asp-route-id=@item.Recipeid class="button top-1">Delete Recipe<span></span></a>
+
+
+                                    </div>
+                                }
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid_6">
+<div class="box">
+              <span class="title-box left"> Waiting  Recipes</span>
+                             <ul class="list bg-list top-3">
+
+              @foreach (var item in ViewBag.pinding )
+              {
+                  
+               	<li><a href="#">@item.Recipename </a></li>
+               	
+              }
+                             </ul>   
+
+           </div>            </div>
+            <div class="clear"></div>
+            <div class="grid_24 bg-bot"></div>
+        </div><!--the end of wrapper-->
+    </div>
+</section>
+
+<style>
+    .row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .carousel {
+        overflow: hidden;
+    }
+
+    .grid_5 {
+        width: calc(33.33% - 20px);
+        margin-right: 20px;
+        box-sizing: border-box;
+    }

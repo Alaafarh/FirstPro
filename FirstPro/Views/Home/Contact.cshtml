@@ -1,0 +1,153 @@
+﻿@*@model Contact
+
+@{
+    ViewData["Title"] = "Contact";
+    Layout = "~/Views/Shared/Home.cshtml";
+}
+
+
+  <div class="container_24">
+    <div class="wrapper bg-wrapper">
+	    <div class="grid_17 suffix_1">
+	    	<h2 class="padd-3">Stay in Touch</h2>
+            <div class="div-map" style="margin:auto">
+                <iframe id="map_canvas" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.083338170005!2d-73.950005!3d40.649974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sBrooklyn%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1649794943834!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+            </div>
+          
+
+            <dl class="adress" style="margin:10px">
+                <dd><span>Telephone:</span>@ViewBag.home.Textcontact</dd>
+            
+                <dd><strong>E-mail:</strong> <a href="#">@ViewBag.home.Textonvedio</a></dd>
+         </dl>
+            
+            
+            <div class="clear"></div>
+	    </div>
+        
+       
+  <div class="grid_6">
+           <div class="box" style="height:500px;margin:auto">
+              <div class="left-1">
+              	<span class="title-box">Contact Form</span>
+              	<form method="post" asp-action="Contact" asp-controller="Home" id="form1">
+              		<fieldset>
+              		<div class="success">Contact form submitted!<br>
+              		<strong>We will be in touch soon.</strong>
+              		</div> 
+              		<label class="name wrapper-after" > name     
+              		<input type="text" asp-for="Name" >
+              		</label><div class="clear"></div>
+              		<label class="email wrapper-after">  email 
+              		<input type="text" asp-for="Email" > 
+              		</label><div class="clear"></div> 
+              		<label class="phone wrapper-after"> phone
+              		<input type="text"asp-for="Phone" >
+              		</label><div class="clear"></div>      
+              		<label class="message wrapper-after">  massage  
+              		<textarea asp-for="Massage" class="img-shadow" ></textarea>
+              		</label>
+              		<div class="buttons2">               
+					<input type="submit"  value="Submit" style="background-color:green;color:black; height: 40px; margin: 5px; width: 130px">
+              		 </div>
+              		<div class="clear"></div>
+              	  </fieldset>     
+              	</form>
+              </div>
+           </div>
+        </div>
+        <div class="clear"></div>
+        <div class="grid_24 bg-bot"></div> 
+     </div><!--the end of wrapper-->
+  </div>
+</section>
+	
+*@
+@model Contact
+
+@{
+    ViewData["Title"] = "Contact";
+    Layout = "~/Views/Shared/Home.cshtml";
+}
+<style>
+    .adress {
+  margin: 10px;
+}
+
+.adress dd {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.adress span {
+  width: 150px; /* يمكن تعديل العرض وفقًا لاحتياجاتك */
+  font-weight: bold;
+}
+
+.adress a {
+  color: forestgreen; /* لون النص للرابط */
+  text-decoration: none;
+}
+
+.adress a:hover {
+  text-decoration: underline;
+}
+
+</style>
+
+<div class="container_24">
+    <div class="wrapper bg-wrapper">
+        <div class="grid_17 suffix_1">
+            <h2 class="padd-3">Stay in Touch</h2>
+            <div class="div-map" style="margin:auto">
+                <iframe id="map_canvas" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.083338170005!2d-73.950005!3d40.649974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sBrooklyn%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1649794943834!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            
+            <dl class="adress" style="margin:30px">
+                <dd><strong>Telephone:</strong>@ViewBag.home.Textcontact</dd>
+                <dd><strong>E-mail:</strong> <a href="#">@ViewBag.home.Textonvedio</a></dd>
+            </dl>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="grid_6">
+            <div class="box" style="height:500px;margin:auto">
+                <div class="left-1">
+                    <span class="title-box">Contact Form</span>
+                    <form method="post" asp-action="Contact" asp-controller="Home" id="form1">
+                        <fieldset>
+                            <div class="success">Contact form submitted!<br>
+                                <strong>We will be in touch soon.</strong>
+                            </div>
+                            <label class="name wrapper-after"> name     
+                                <input type="text" asp-for="Name">
+                            </label>
+                            <div class="clear"></div>
+                            <label class="email wrapper-after">  email 
+                                <input type="text" asp-for="Email"> 
+                            </label>
+                            <div class="clear"></div>
+                            <label class="phone wrapper-after"> phone
+                                <input type="text" asp-for="Phone">
+                            </label>
+                            <div class="clear"></div>
+                            <label class="message wrapper-after">  massage  
+                                <textarea asp-for="Massage" class="img-shadow"></textarea>
+                            </label>
+                            <div class="buttons2">               
+                                <input type="submit" value="Submit" style="background-color:green;color:black; height: 40px; margin: 5px; width: 130px">
+                            </div>
+                            <div class="clear"></div>
+                        </fieldset>     
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="clear"></div>
+        <div class="grid_24 bg-bot"></div> 
+    </div><!-- نهاية الـ wrapper -->
+</div>

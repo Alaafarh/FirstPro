@@ -1,0 +1,142 @@
+﻿@model IEnumerable<Recipe>
+
+@{
+    ViewData["Title"] = "Search";
+        Layout = "~/Views/Shared/Home.cshtml";
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .hero-image {
+            background-image: url(https://get.foundation/building-blocks/assets/img/building-block/hero-search-filter/hero-search-filter.png); /* Change the path to your hero image */
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .card-center {
+            margin-top: -100px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .thumb img {
+            width: 90%;
+            height: 20%;
+        }
+
+        .down-content {
+            padding: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ***** Hero Image Start ***** -->
+    @*<div class="hero-image">
+        <div class="container">
+            <h2>Check Our Recipes!</h2>
+            <p>Over 500 recipes in our store are out now!</p>
+        </div>
+    </div>*@
+    <!-- ***** Hero Image End ***** -->
+    <!-- ***** Search Form Start ***** -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card card-center" style="margin: 50px;background-color:ghostwhite">
+                    <div class="card-body">
+                        <h4 class="card-title">Search Recipes</h4>
+                        @using (Html.BeginForm("Search", "Recipes", FormMethod.Post))
+                        {
+                            <div class="form-group">
+                                <label for="searchByCategory"><b>Search By Category:</b></label>
+                                <div id="searchByCategory">
+                                    @Html.RadioButton("searchBy", "Salad") <span>Salad</span>
+                                    @Html.RadioButton("searchBy", "Main meal") <span>Main Meals</span>
+                                    @Html.RadioButton("searchBy", "sweets") <span>Sweets</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-primary" style="background-color:forestgreen;color:black"  value="Search" />
+                            </div>
+                        }
+
+                        @using (Html.BeginForm("Search", "Recipes", FormMethod.Post))
+                        {
+                            <div class="form-group">
+                                <label for="searchByName"><b>Search By Recipe Name:</b></label>
+                                @Html.TextBox("search", null, new { @class = "form-control", @placeholder = "Enter recipe name" })
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-primary" style="background-color:forestgreen;color:black" value="Search" />
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Search Form End ***** -->
+
+    <!-- ***** Products Area Starts ***** -->
+    <section class="section" id="products">
+        <div class="container">
+            <div class="row">
+                @if (Model != null)
+                {
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="item">
+                                <div class="thumb">
+                                    <div class="hover-content">
+                                        <ul>
+                                            <!-- Add links here if needed -->
+                                        </ul>
+                                    </div>
+                                    <img src="@Url.Content("~/Images/" + item.Imagepath)" alt="@item.Recipename"style="border-radius:100%;"@* width="20" height="20"*@ @*class="img-fluid"*@>
+                                </div>
+                                <div class="down-content">
+                                    <h4>@item.Recipename</h4>
+                                    <h3>@item.Category.Categoryname</h3>
+                                    <span>$@item.Price</span>
+                                    <p>@item.Discription</p>
+                                    <ul class="stars">
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </section>
+    <!-- ***** Products Area Ends ***** -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

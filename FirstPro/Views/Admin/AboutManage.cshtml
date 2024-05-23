@@ -1,0 +1,185 @@
+﻿@*@model IEnumerable<Aboutu>
+
+@{
+        Layout = "~/Views/Shared/Admin.cshtml";
+
+}
+
+<html>
+<body>
+
+    <div class="container-fluid page-body-wrapper">
+        <!-- side bar -->
+       
+        <div class="content-wrapper">
+
+
+            <div class="row">
+
+                <div class="col-lg-10 grid-margin stretch-card">
+                    <div class="card">
+
+                        <div class="card-body">
+                            <form asp-action="AboutManage" asp-controller="Admin" method="post" enctype="multipart/form-data">
+                            <div class="col-md-6">
+                               
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <input type="hidden" id="Aboutus" />
+                                    <div class="form-group">
+                                        <label id="Textinsideimage" class="control-label">Text On Image</label>
+                                        <input type="text" name="Textinsideimage" id="Textinsideimage" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label id="About" class="control-label">About</label>
+                                        <input type="text" name="About" id="About" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label id="Image" class="control-label">Back ground Image</label>
+                                        <input type="file" id="Image" name="Image" class="form-control" />
+                                    </div>
+
+                           
+                                 
+                                    <div class="form-group">
+                                        <input type="submit" value="Save" class="btn btn-primary" />
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+                <div class="row">
+                    <div class="col-lg-10 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="table-responsive">
+
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Text On Image</th>
+                                            <th>Body Image</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+
+                                                <td>@item.Aboutus</td>
+                                                <td>
+                                                    <img src=@Url.Content("~/Images/" + item.Imageform) asp-append-version="true"
+                                                     style="border-radius:10%;" width="500 !important" height="500 !important" />
+                                                </td>
+                                                <td>@item.Textinsideimage</td>
+                                                <td>
+                                                    <a asp-action="AboutUs" asp-controller="Home" asp-route-id="@item.Aboutus">Put</a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+</body>
+</html>
+*@
+@model IEnumerable<Aboutu>
+
+@{
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<html>
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container-fluid page-body-wrapper">
+        <!-- side bar -->
+
+        <div class="content-wrapper d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+
+            <div class="row w-100">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card">
+
+                        <div class="card-body">
+                            <form asp-action="AboutManage" asp-controller="Admin" method="post" enctype="multipart/form-data">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <input type="hidden" id="Aboutus" />
+                                <div class="form-group">
+                                    <label for="Textinsideimage" class="control-label">Text On Image</label>
+                                    <input type="text" name="Textinsideimage" id="Textinsideimage" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="About" class="control-label">About</label>
+                                    <input type="text" name="About" id="About" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="Image" class="control-label">Back ground Image</label>
+                                    <input type="file" id="Image" name="Image" class="form-control" />
+                                </div>
+                                <div class="form-group text-center">
+                                    <input type="submit" value="Save" class="btn btn-primary" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row w-100 mt-5">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Body Image</th>
+                                                                                        <th>Text On Image</th>
+
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.Aboutus</td>
+                                                <td>
+                                                    <img src="@Url.Content("~/Images/" + item.Imageform)" asp-append-version="true"
+                                                     style="border-radius:10%;" width="150" height="150" />
+                                                </td>
+                                                <td>@item.Textinsideimage</td>
+                                                <td>
+                                                    <a asp-action="AboutUs" asp-controller="Home" asp-route-id="@item.Aboutus" class="btn btn-warning">Edit</a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Contact>
+@{
+    ViewData["Title"] = "contact";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<style>
+    .center-page {
+        display: flex;
+        justify-content: center;
+    }
+
+    .table-responsive {
+        margin-top: 20px; /* Adjust margin as needed */
+    }
+    .card {
+        width: 110%; /* Set the width to 100% */
+        max-width: 1200px; /* Set a maximum width if needed */
+        margin: 20px auto; 
+</style>
+
+<div class="center-page">
+    <div class="col-lg-8" style="padding:60px"> <!-- Adjust the column width as per your design -->
+        <div class="card">
+            <div class="card-body">
+                <div class="card-title">
+                    <h4 class="text-center">contact Table</h4> <!-- Center the table title -->
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.Name)</th>
+                                <th>@Html.DisplayNameFor(model => model.Email)</th>
+                                <th>@Html.DisplayNameFor(model => model.Phone)</th>
+                                <th>@Html.DisplayNameFor(model => model.Massage)</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Phone)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Massage)</td>
+                                    
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

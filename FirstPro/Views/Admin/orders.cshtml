@@ -1,0 +1,112 @@
+﻿@*
+@model IEnumerable<Orderrecipe>
+@{
+    ViewData["Title"] = "orders";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+
+<div class="d-flex justify-content-center">
+    <div class="col-lg-6 " >
+        <div class="card">
+            <div class="card-body">
+                <div class="active-member">
+                    <div class="table-responsive">
+                        <table class="table table-xs mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Customers Name</th>
+                                    <th>Recipe Name</th>
+                                    <th>Price</th>
+                                    <th>Order Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.User.Fname @item.User.Lname</td>
+                                        <td>
+                                            <span>@item.Recipe.Recipename</span>
+                                        </td>
+                                        <td>
+                                            <span>@item.Totalprice</span>
+                                        </td>
+                                        <td>@item.Shopdate</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>                        
+    </div>
+</div>
+*@
+@model IEnumerable<Orderrecipe>
+@{
+    ViewData["Title"] = "orders";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+
+<div class="d-flex justify-content-center">
+    <div class="col-lg-6 mx-auto">
+        <div class="card">
+            <div class="card-body">
+                <div class="active-member">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-bordered mb-0">
+                            <thead style="background-color:forestgreen"> 
+                                <tr>
+                                    <th>Customers Name</th>
+                                    <th>Recipe Name</th>
+                                    <th>Price</th>
+                                    <th>Order Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.User.Fname @item.User.Lname</td>
+                                        <td>@item.Recipe.Recipename</td>
+                                        <td>@item.Totalprice</td>
+                                        <td>@item.Shopdate</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>                        
+    </div>
+</div>
+
+<style>
+    h1 {
+        color: #343a40; /* لون النص للعناوين */
+    }
+    .card {
+        border: 1px solid #dee2e6; /* حدود البطاقة */
+        border-radius: 0.25rem; /* زوايا دائرية للبطاقة */
+    }
+    .card-body {
+        background-color: #f8f9fa; /* خلفية جسم البطاقة */
+    }
+    .table th {
+        background-color: forestgreen; /* خلفية رأس الجدول */
+        color: white; /* لون النص في رأس الجدول */
+    }
+    .table td {
+        vertical-align: middle; /* توسيط النص عموديًا في الخلايا */
+    }
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: rgba(0, 123, 255, 0.05); /* خلفية الصفوف المتناوبة */
+    }
+    .table-hover tbody tr:hover {
+        background-color: rgba(0, 123, 255, 0.1); /* خلفية الصف عند تمرير الفأرة */
+    }
+</style>

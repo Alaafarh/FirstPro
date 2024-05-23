@@ -1,0 +1,74 @@
+﻿ @model FirstPro.Models.Recipe
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h1 class="text-center">Edit Recipe</h1>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card mx-auto" style="width: 50rem;">
+                <div class="card-body">
+                    <form asp-action="Edit" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Recipeid" />
+
+                         <div class="form-group">
+                <label asp-for="Recipename" class="control-label"></label>
+                <input asp-for="Recipename" class="form-control" />
+                <span asp-validation-for="Recipename" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label type="hidden"  asp-for="Flag" class="control-label"></label>
+                <input  type="hidden" asp-for="Flag" class="form-control" />
+                <span asp-validation-for="Flag" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                            <label asp-for="ImageFile" class="control-label">Image Path</label>
+                            <input asp-for="ImageFile" class="form-control" />
+                            <span asp-validation-for="ImageFile" class="text-danger"></span>
+                        </div>
+            
+            <div class="form-group">
+                <label type="hidden"  asp-for="Categoryid" class="control-label"></label>
+                <select type="hidden" asp-for="Categoryid" class="form-control" asp-items="ViewBag.Categoryid"></select>
+                <span asp-validation-for="Categoryid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Creatdate" class="control-label"></label>
+                <input asp-for="Creatdate" class="form-control"  readonly/>
+                <span asp-validation-for="Creatdate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Discription" class="control-label"></label>
+                <input asp-for="Discription" class="form-control" />
+                <span asp-validation-for="Discription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+
+            </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*<div class="row justify-content-center mt-3">
+        <div class="col-md-8 text-center">
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>*@
+</div>
+
+

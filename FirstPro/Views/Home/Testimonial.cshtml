@@ -1,0 +1,137 @@
+﻿@*
+    @model IEnumerable<Testimonial>
+
+@{
+    Layout = "~/Views/Shared/Home.cshtml";
+}
+
+<section id="content">         
+    <div class="container_24">
+        <div class="wrapper bg-wrapper">
+            <div class="grid_17 suffix_1">
+                <h2 class="padd-3"> User Comments </h2>
+                <div class="main-carousel">
+                    <div class="carousel">
+                      
+                                @foreach (var item in Model)
+                                {
+                                      <div class="grid_5 txt-al suffix_1 marg-left-0">
+                                        <img src="@Url.Content("~/Images/" + @item.User.Imagepath)" alt="" class="image" />
+                                          <h3 class="top-1">@item.User.Fname</h3>
+                                         <p class="font-14 top-2">@item.CommentUser</p>
+
+                                }
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+          </div>
+          </section>
+<style>
+    .row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .carousel {
+        overflow: hidden;
+    }
+
+    .grid_5 {
+        width: calc(33.33% - 20px);
+        margin-right: 20px;
+        box-sizing: border-box;
+    }
+*@
+ @model IEnumerable<Testimonial>
+
+@{
+    Layout = "~/Views/Shared/Home.cshtml";
+}
+
+<section id="content">         
+    <div class="container">
+        <div class="wrapper bg-wrapper">
+            <div class="grid-17 suffix-1">
+                <h2 class="section-title padd-3">User Comments</h2>
+                <div class="main-carousel">
+                    <div class="carousel">
+                        @foreach (var item in Model)
+                        {
+                            <div class="testimonial-item">
+                                <img src="@Url.Content("~/Images/" + @item.User.Imagepath)" alt="" class="testimonial-image" />
+                                <h3 class="testimonial-name">@item.User.Fname @item.User.Lname</h3>
+                                <p class="testimonial-comment">@item.CommentUser</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     @*<div class="grid_6">
+         <div class="box" style="margin:10px;">
+    <form asp-action="Testimonial" asp-controller="Home" method="POST">
+        <span class="title-box left">Write your comment please...</span>
+        <input type="text" name="comment"   required>
+       <div class="txt-al"> <button type="submit" class="button-1" style="position:center">Send</button> </div>
+
+    </form>
+    </div>
+    </div>*@
+    
+</section>
+
+<style>
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .section-title {
+        text-align: center;
+    }
+
+    .main-carousel {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .carousel {
+        display: flex;
+        gap: 20px;
+        padding-bottom: 20px;
+    }
+
+    .testimonial-item {
+        flex: 0 0 calc(33.33% - 20px);
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-radius: 8px;
+        text-align: center;
+        scroll-snap-align: start;
+    }
+
+    .testimonial-image {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+        object-fit: cover;
+    }
+
+    .testimonial-name {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .testimonial-comment {
+        font-size: 14px;
+    }
+</style>

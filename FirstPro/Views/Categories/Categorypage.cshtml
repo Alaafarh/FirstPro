@@ -1,0 +1,114 @@
+﻿@*
+
+
+
+@model IEnumerable<FirstPro.Models.Category>
+
+@{
+    Layout = "~/Views/Shared/Home.cshtml";
+}
+<section id="content">         
+  <div class="container_24">
+    <div class="wrapper bg-wrapper">
+	    <div class="grid_17 suffix_1">
+	    	<h2 class="padd-3">Category of recipes</h2>
+          <div class="row">
+            @foreach (var category in Model)
+            {
+               <div class="col-md-4">
+                 <div class="row">
+                   <div class="col-md-6">
+                     <img src="@Url.Content("~/Images/" + category.Imagepath)" alt="" class="image">
+                   </div>
+                   <div class="col-md-6">
+                     <h3><a href="#">@category.Categoryname</a></h3>
+                     @foreach (var recipe in category.Recipes)
+                     {
+                       <strong class="color-1 dis-block">@recipe.Recipename <span class="color-2">@recipe.Price AED</span></strong>
+                     }
+                   </div>
+                 </div>
+               </div>
+            }
+          </div>
+	    </div>
+    </div>
+  </div>
+</section>
+*@
+
+                   @model IEnumerable<FirstPro.Models.Category>
+
+@{
+    Layout = "~/Views/Shared/Home.cshtml";
+    var count = 0;
+}
+
+<section id="content">
+    <div class="container_24">
+        <div class="wrapper bg-wrapper">
+            <div class="grid_17 suffix_1">
+                <h2 class="padd-3">Category of recipes</h2>
+                <div class="main-carousel">
+                    <div class="carousel">
+                        @for (int i = 0; i < Model.Count(); i += 3)
+                        {
+                            <div class="row">
+                                @for (int j = i; j < i + 3 && j < Model.Count(); j++)
+                                {
+                                    var category = Model.ElementAt(j);
+                                    <div class="grid_5 txt-al suffix_1 marg-left-0">
+                                        <img src="@Url.Content("~/Images/" + category.Imagepath)" alt="" class="image" />
+                                        <h3 class="top-1">@category.Categoryname</h3>
+                                        <div>
+                                            @foreach (var recipe in category.Recipes)
+                                            {
+                                                <strong class="color-1 dis-block">@recipe.Recipename <span class="color-2">@recipe.Price AED</span></strong>
+                                            }
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+       
+</section>
+
+<style>
+    .row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .carousel {
+        overflow: hidden;
+    }
+
+    .grid_5 {
+        width: calc(33.33% - 20px);
+        margin-right: 20px;
+        box-sizing: border-box;
+    }
+
+    .image {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .title-box {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .box ul.list {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .box ul.list li {
+        margin-bottom: 10px;
+    }
+</style>

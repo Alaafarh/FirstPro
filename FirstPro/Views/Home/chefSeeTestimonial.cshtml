@@ -1,0 +1,167 @@
+﻿@*
+
+        @model IEnumerable<Testimonial>
+
+@{
+    Layout = "~/Views/Shared/Home.cshtml";
+}
+
+<section id="content">         
+    <div class="container">
+        <div class="wrapper bg-wrapper">
+            <div class="grid-17 suffix-1">
+                <h2 class="section-title padd-3">Chef Comments</h2>
+                <div class="main-carousel">
+                    <div class="carousel">
+                        @foreach (var item in Model)
+                        {
+                            <div class="testimonial-item">
+                                <img src="@Url.Content("~/Images/" + @item.User.Imagepath)" alt="" class="testimonial-image" />
+                                <h3 class="testimonial-name">@item.User.Fname @item.User.Lname</h3>
+                                <p class="testimonial-comment">@item.CommentUser</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</section>
+
+<style>
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    .section-title {
+        text-align: center;
+    }
+
+    .main-carousel {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 20px;
+        margin: 0 -15px; /* Ensure the carousel items have enough room */
+    }
+
+    .carousel {
+        display: flex;
+        gap: 20px;
+    }
+
+    .testimonial-item {
+        flex: 0 0 calc(33.33% - 20px);
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-radius: 8px;
+        text-align: center;
+        scroll-snap-align: start;
+        box-sizing: border-box; /* Include padding and border in the element's width and height */
+    }
+
+    .testimonial-image {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+        object-fit: cover;
+    }
+
+    .testimonial-name {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .testimonial-comment {
+        font-size: 14px;
+    }
+</style>
+*@
+
+  @model IEnumerable<Testimonial>
+
+@{
+    Layout = "~/Views/Shared/Home.cshtml";
+}
+
+<section id="content">         
+    <div class="container">
+        <div class="wrapper bg-wrapper">
+            <div class="grid-17 suffix-1">
+                <h2 class="section-title padd-3">Chef Comments</h2>
+                <div class="main-carousel" style="margin:auto">
+                    <div class="carousel">
+                        @foreach (var item in Model)
+                        {
+                            <div class="testimonial-item">
+                                <img src="@Url.Content("~/Images/" + @item.User.Imagepath)" alt="" class="testimonial-image" />
+                                <h3 class="testimonial-name">@item.User.Fname @item.User.Lname</h3>
+                                <p class="testimonial-comment">@item.CommentUser</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    .section-title {
+        text-align: center;
+    }
+
+    .main-carousel {
+        display: flex;
+        justify-content: center; /* Center the carousel horizontally */
+        padding-bottom: 20px;
+    }
+
+    .carousel {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center; /* Center the items within the carousel */
+        max-width: 1000px; /* Limit the width to ensure centering */
+    }
+
+    .testimonial-item {
+        flex: 1 0 calc(33.33% - 20px); /* Adjust the width to fit 3 items per row */
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-radius: 8px;
+        text-align: center;
+        box-sizing: border-box; /* Include padding and border in the element's width and height */
+        max-width: calc(33.33% - 20px); /* Ensure items don't exceed their allocated space */
+    }
+
+    .testimonial-image {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+        object-fit: cover;
+    }
+
+    .testimonial-name {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .testimonial-comment {
+        font-size: 14px;
+    }
+</style>

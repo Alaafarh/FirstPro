@@ -1,0 +1,65 @@
+﻿@model IEnumerable<FirstPro.Models.Testimonial>
+@{
+    ViewData["Title"] = "AcceptRecipe";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<style>
+    .center-page {
+        display: flex;
+        justify-content: center;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 800px;
+        margin: 20px auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 40px;
+    }
+
+    .btn-group {
+        display: flex;
+        gap: 10px; /* Adjust the gap between buttons */
+    }
+</style>
+
+<div class="center-page">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title text-center">  Status Testimonial </h4>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>User Name</th>
+                            <th>Accept Testemoninal</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td> @item.User.Fname  @item.User.Lname</td>
+                                  <td> @item.CommentUser</td>
+
+                                <td>
+                                    <div class="btn-group">
+                                        <form asp-action="AcceptTestemonial" asp-route-id="@item.Testimonialid" method="post">
+                                            <button type="submit" class="btn btn-success">Accept</button>
+                                        </form>
+                                        <form asp-action="AcceptTestemonial" asp-route-id="@item.Testimonialid" method="post">
+                                            <button type="submit" class="btn btn-danger">Reject</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
